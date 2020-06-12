@@ -1,0 +1,14 @@
+.header{
+    display: grid;
+    height: 100px;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(255,255,255)
+}
+#logo{
+    margin-left:10px;
+    width:220px;
+    height:100px;
+}
