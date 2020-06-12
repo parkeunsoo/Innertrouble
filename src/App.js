@@ -1,25 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from './Components/Header'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Sidebar from './Components/Sidebar'
+import Home from './Pages/Home'
+import Recent from './Pages/Recent'
+import Hot from './Pages/Hot'
+import Friends from './Pages/Friends'
+import Valorant from './Pages/Valorant'
+import Life from './Pages/Life'
+import Making from './Pages/Making'
+import Books from './Pages/Books'
+import Musics from './Pages/Musics'
+import Videos from './Pages/Videos'
+import Inner from './Pages/Inner'
+import Outter from './Pages/Outter'
+import Experience from './Pages/Experience'
+import Information from './Pages/Information'
+import Knowledge from './Pages/Knowledge'
+
+
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Header></Header>    
+            <div className="container">
+                <Sidebar></Sidebar>
+                <div id="board">
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/recent' component={Recent} />
+                    <Route exact path='/hot' component={Hot} />
+                    <Route exact path='/friends' component={Friends} />
+                    <Route exact path='/valorant' component={Valorant} />
+                    <Route exact path='/life' component={Life} />
+                    <Route exact path='/making' component={Making} />
+                    <Route exact path='/books' component={Books} />
+                    <Route exact path='/musics' component={Musics} />
+                    <Route exact path='/videos' component={Videos} />
+                    <Route exact path='/inner' component={Inner} />
+                    <Route exact path='/outter' component={Outter} />
+                    <Route exact path='/experience' component={Experience} />
+                    <Route exact path='/information' component={Information} />
+                    <Route exact path='/knowledge' component={Knowledge} />
+                </div>
+            </div>
+    </Router>
   );
 }
 
