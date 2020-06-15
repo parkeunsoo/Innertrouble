@@ -7,14 +7,14 @@
   overflow-x:hidden;
   margin-top:100px;
 }
-.sidebar:hover::-webkit-scrollbar{
+.sidebar:hover::-webkit-scrollbar {
     background:rgb(253,253,253);
     width:8px;
   }
 .sidebar:hover::-webkit-scrollbar-thumb {
     background:rgb(200,200,200)
   }
-  .sidebar::-webkit-scrollbar{
+.sidebar::-webkit-scrollbar {
     background:rgb(253,253,253);
     width:8px;
 }
