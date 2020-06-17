@@ -3,24 +3,38 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
+
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
 
 var app = express();
+const models = require('./models');
+const config = require('./config/config');
 
+models.sequelize.sync().then(() => {
+    console.log('✓ DB connection success.');
+    console.log('  Press CTRL-C to stop\n');
+  }).catch(err => {
+    console.error(err);
+    console.log('✗ DB connection error. Please make sure DB is running.');
+    process.exit();
+  });
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.use(cors());
 
-app.use(logger('dev'));
+app.set('jwt-secret', config.secret);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,5 +51,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(app.get('port'), function(){
+  console.log(`Server is running on ${app.get('port')}`);
+});
+
 
 module.exports = app;
