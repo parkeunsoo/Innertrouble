@@ -3,7 +3,11 @@ import '../CSS/inner.css'
 function Inner(){
 return(
     <div className="icontainer">
-        Inner
+        <div id="innerboard">
+            <div id="postlist">
+                
+            </div>
+        </div>
     </div>
 )
 }

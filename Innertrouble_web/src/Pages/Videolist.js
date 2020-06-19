@@ -3,9 +3,6 @@ import Youtubeapi,{ baseParams } from '../API/Youtubeapi'
 import YouTube from 'react-youtube';
 import '../CSS/videolist.css'
 class Videolist extends React.Component{
-    constructor(){
-        super();
-    }
     state = {
         items : null,
         loading : true 
@@ -40,7 +37,6 @@ class Videolist extends React.Component{
                 autoplay: 0,
                 origin:'http://localhost:3001'
             },}
-        const entry =['Gj8gx-lDOdg','Gj8gx-lDOdg','Gj8gx-lDOdg','Gj8gx-lDOdg'];
         var videos = this.state.items.map((value)=><YouTube videoId={value.id.videoId} opts={opts}></YouTube>)
             return(
                 <div className="videolistcontainer">

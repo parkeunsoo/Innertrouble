@@ -1,4 +1,21 @@
 .icontainer{
     display:grid;
-    margin-top:100px
+    margin-top:100px;
+    grid-template-columns: 1fr;
+}
+#innerboard{
+    background-color:rgb(255,255,255);
+    margin:1px ;
+    display:grid;
+    width:100%;
+    height:100%;
+    grid-template-columns: 1fr;
+    justify-items:center;
+    align-items:center;
+   
+}
+#postlist{
+    background-color:green;
+    width:60%;
+    height:70%;
 }

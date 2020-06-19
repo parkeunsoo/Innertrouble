@@ -1,16 +1,21 @@
 import React from 'react'
 import Barbutton from '../Components/Barbutton'
 import Loginapi from '../API/Loginapi'
+import { menuStatus,userStatus } from '../actions'
+import { connect } from 'react-redux';
 import '../CSS/login.css'
-import { useHistory } from "react-router-dom";
 class Login extends React.Component{
     constructor(){
         super();
+        this.state={
+            id : null,
+            password : null
+        }
+
     }
-    state={
-        id : null,
-        password : null
-    }
+    _goHome() {
+        this.props.history.push("/");
+      }
     handleChange = (e) => {
         if(e.target.name ==="id"){
             this.setState({
@@ -22,7 +27,6 @@ class Login extends React.Component{
               password:e.target.value
             })
           }   
-          console.log(this.state)
       }
     _Sign_in = () => {
         Loginapi.post('/signin',{ 
@@ -36,9 +40,14 @@ class Login extends React.Component{
             }
         }).then(response=>response.data).then(data =>{
             console.log(data)
-            if(data.message=="success"){
+            if(data.message==="success"){
                 alert(data.token)
-                history.push("/home")
+                this._goHome()
+                this.props.menuStatus('/')
+                this.props.userStatus({
+                    id:this.state.id,
+                    token:data.token
+                })
                 }
             else{
                 alert("로그인에 실패하셨습니다.")
@@ -57,10 +66,10 @@ class Login extends React.Component{
                 'Content-Type':'application/json',
             }
         }).then(response=>response.data).then(data =>{
-            if(data =="success"){
+            if(data ==="success"){
                 alert("회원가입을 축하합니다.")
             }
-            if(data =="fail"){
+            if(data ==="fail"){
                 alert("회원가입에 실패하셨습니다.")
             }
         });
@@ -70,7 +79,7 @@ class Login extends React.Component{
         return(
             <div className="logincontainer">
                 <div id="loginform">
-                    <input id="input" type="id" name="id" placeholder="USER ID" value={this.state.id} onChange={this.handleChange}></input>
+                    <input id="input" type="id" name="id" placeholder="USER ID" value={this.state.id || ''}  onChange={this.handleChange}></input>
                     <div></div>
                     <input id="input" type="password" name="password" placeholder="PASSWORD" value={this.state.password} onChange={this.handleChange}></input>
                     <div id="space"></div>
@@ -81,4 +90,18 @@ class Login extends React.Component{
         )
     }
 }
-export default Login;
+const mapStateToProps = state => ({
+    selected: state.status.menu,
+    user: state.status.user
+  });
+  
+  // props 로 넣어줄 액션 생성함수
+const mapDispatchToProps = dispatch => ({
+    menuStatus: menu => dispatch(menuStatus(menu)),
+    userStatus: user => dispatch(userStatus(user))
+  });
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Login)

@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Components/Header'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Sidebar from './Components/Sidebar'
 import Home from './Pages/Home'
 import Recent from './Pages/Recent'
@@ -29,7 +29,7 @@ function App() {
             <div className="container">
                 <Sidebar></Sidebar>
                 <div id="board">
-                    <Route exact path='/' component={Home} />
+                    <Route exact path='/home' component={Home} />
                     <Route exact path='/recent' component={Recent} />
                     <Route exact path='/hot' component={Hot} />
                     <Route exact path='/friends' component={Friends} />

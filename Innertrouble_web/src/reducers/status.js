@@ -1,7 +1,8 @@
 import * as types from '../actions/ActionTypes';
 
 const initialState={
-    menu:null
+    menu:null,
+    user:null
 }
 export default function status(state = initialState, action){
 
@@ -9,8 +10,14 @@ export default function status(state = initialState, action){
         case types.MENU_STATUS:
             return { 
                 ...state, 
-                menu:action.menu};
+                menu:action.menu
+            };
+        case types.USER_STATUS:
+            return {
+                ...state,
+                user:action.user
+            };
         default:
-            return { ...state};
+            return state;
     }
 }

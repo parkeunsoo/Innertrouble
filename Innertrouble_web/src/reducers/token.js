@@ -11,6 +11,6 @@ export default function token(state = initialState, action){
         case types.TOKEN_GET:
             return { ...state};
         default:
-            return { ...state};
+            return { state};
     }
 }

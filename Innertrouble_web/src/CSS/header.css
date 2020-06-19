@@ -17,3 +17,17 @@
     top:40px;
     right:40px;
 }
+#hello{
+    position:absolute;
+    top:70px;
+    right:40px;
+    font-size:14px;
+    font-weight:500;
+    color:rgb(60, 120, 165);
+    background-color: rgb(255,255,255);
+}
+#hello:hover{
+    cursor:pointer;
+    color:rgb(255,255,255);
+    background-color: rgb(60, 120, 165);
+}

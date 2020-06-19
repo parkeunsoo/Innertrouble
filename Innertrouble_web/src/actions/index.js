@@ -6,6 +6,12 @@ export function menuStatus(menu){
         menu:menu
     }
 }
+export function userStatus(user){
+    return{
+        type:types.USER_STATUS,
+        user:user
+    }
+}
 export function getStatusAuth(){
     return{
         type:types.AUTH_GET_STATUS

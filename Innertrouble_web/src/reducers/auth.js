@@ -13,6 +13,6 @@ export default function auth(state = initialState, action){
         case types.AUTH_GET_STATUS:
             return { ...state};
         default:
-            return { ...state};
+            return { state};
     }
 }
