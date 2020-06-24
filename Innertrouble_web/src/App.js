@@ -18,6 +18,7 @@ import Experience from './Pages/Experience'
 import Information from './Pages/Information'
 import Knowledge from './Pages/Knowledge'
 import Login from './Pages/Login'
+import Myinfo from './Pages/Myinfo'
 
 
 import './App.css';
@@ -45,6 +46,7 @@ function App() {
                     <Route exact path='/information' component={Information} />
                     <Route exact path='/knowledge' component={Knowledge} />
                     <Route exact path='/login' component={Login}/>
+                    <Route exact path='/Myinfo' component={Myinfo}/>
                 </div>
             </div>
     </Router>

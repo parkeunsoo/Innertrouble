@@ -4,6 +4,7 @@ import logo from '../Images/inner_logo3.png'
 import BarButton from './Barbutton';
 import { menuStatus,userStatus } from '../actions'
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom'
 class Header extends React.Component{
     state={
         login:null
@@ -22,7 +23,7 @@ class Header extends React.Component{
         else{
             return(
             <div className="header">
-                    <div id="hello">ID: {this.props.user.id}</div><img id="logo" src={logo} alt=""></img><div id ="signbutton"><BarButton onClick = {this._logout} value ="LOG:OUT" link='/'></BarButton></div>
+                    <Link id="myinfo" to="/Myinfo" onClick = {()=>{this.props.menuStatus(null)}}>{this.props.user.id}</Link><img id="logo" src={logo} alt=""></img><div id ="signbutton"><BarButton onClick = {this._logout} value ="LOG:OUT" link='/'></BarButton></div>
                 </div>
         )}
     } 

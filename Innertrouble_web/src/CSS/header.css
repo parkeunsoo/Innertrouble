@@ -17,7 +17,7 @@
     top:40px;
     right:40px;
 }
-#hello{
+#myinfo{
     position:absolute;
     top:70px;
     right:40px;
@@ -25,8 +25,9 @@
     font-weight:500;
     color:rgb(60, 120, 165);
     background-color: rgb(255,255,255);
+    text-decoration:none
 }
-#hello:hover{
+#myinfo:hover{
     cursor:pointer;
     color:rgb(255,255,255);
     background-color: rgb(60, 120, 165);

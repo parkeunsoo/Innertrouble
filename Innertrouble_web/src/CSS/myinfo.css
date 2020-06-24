@@ -1,0 +1,5 @@
+.myinfocontainer{
+    display:grid;
+    margin-top:100px;
+    /* grid-template-columns:1fr */
+}
